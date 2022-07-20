@@ -2,6 +2,7 @@
 package support;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.Point;
@@ -33,20 +34,31 @@ public class TestContext {
     }
 
     public static void initialize() {
-        initialize("chrome", "local", false);
+        initialize("chrome", "local", false, false);
     }
 
     public static void teardown() {
         driver.quit();
     }
 
-    public static void initialize(String browser, String testEnv, boolean isHeadless) {
+    public static void initialize(String browser, String testEnv, boolean isHeadless, boolean isBeta) {
         Dimension size = new Dimension(1920, 1080);
         Point position = new Point(0, 0);
         if (testEnv.equals("local")) {
             switch (browser) {
                 case "chrome":
-                    WebDriverManager.chromedriver().setup();
+                    if (isBeta) {
+                        String browserDetectionCommand = "/Applications/Google Chrome Beta.app/Contents/MacOS/Google Chrome Beta --version";
+                        if (SystemUtils.IS_OS_WINDOWS) {
+                            browserDetectionCommand = "REG QUERY \"HKCU\\Software\\Google\\Chrome Beta\\BLBeacon\" /v version";
+                        }
+                        WebDriverManager.chromedriver().clearResolutionCache();
+                        WebDriverManager.chromedriver()
+                                .browserVersionDetectionCommand(browserDetectionCommand)
+                                .setup();
+                    } else {
+                        WebDriverManager.chromedriver().setup();
+                    }
                     Map<String, Object> chromePreferences = new HashMap<>();
                     chromePreferences.put("profile.default_content_settings.geolocation", 2);
                     chromePreferences.put("profile.default_content_settings.popups", 0);
@@ -61,6 +73,13 @@ public class TestContext {
                     // for EMEA only - disable cookies
 //                    chromePreferences.put("profile.default_content_setting_values.cookies", 2);
                     ChromeOptions chromeOptions = new ChromeOptions();
+                    if (isBeta) {
+                        if (SystemUtils.IS_OS_MAC) {
+                            chromeOptions.setBinary("/Applications/Google Chrome Beta.app/Contents/MacOS/Google Chrome Beta");
+                        } else if (SystemUtils.IS_OS_WINDOWS) {
+                            chromeOptions.setBinary("C:\\Program Files\\Google\\Chrome Beta\\Application\\chrome.exe");
+                        }
+                    }
                     chromeOptions.addArguments("--start-maximized");
                     chromeOptions.setExperimentalOption("prefs", chromePreferences);
                     System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
