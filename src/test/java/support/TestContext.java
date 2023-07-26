@@ -70,7 +70,10 @@ public class TestContext {
                         chromeOptions.addArguments("--window-size=" + size.getWidth() + "," + size.getWidth());
                         chromeOptions.addArguments("--disable-gpu");
                     }
-                    driver = new ChromeDriver(chromeOptions);
+                    ChromeDriverService service = new ChromeDriverService.Builder()
+                            .withLogOutput(System.out)
+                            .build();
+                    driver = new ChromeDriver(service, chromeOptions);
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
