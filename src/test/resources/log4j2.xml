@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Configuration status="INFO">
+<Configuration>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%p %d{HH:mm:ss:SSS} %c{2} %M:%L %m%n" />
@@ -9,7 +9,7 @@
         </File>
     </Appenders>
     <Loggers>
-        <Root level="INFO">
+        <Root level="ERROR">
             <AppenderRef ref="Console" />
             <AppenderRef ref="File" />
         </Root>

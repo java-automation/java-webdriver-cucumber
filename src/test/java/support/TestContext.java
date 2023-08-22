@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -64,7 +65,15 @@ public class TestContext {
                     chromeOptions.addArguments("--start-maximized");
                     chromeOptions.addArguments("--remote-allow-origins=*");
                     chromeOptions.setExperimentalOption("prefs", chromePreferences);
+                    if (SystemUtils.IS_OS_MAC) {
+                        chromeOptions.setBinary("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome");
+                    } else if (SystemUtils.IS_OS_WINDOWS) {
+                        chromeOptions.setBinary("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
+                    } else if (SystemUtils.IS_OS_LINUX) {
+                        chromeOptions.setBinary("/opt/google/chrome/chrome");
+                    }
                     System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
+                    System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_LEVEL_PROPERTY, "SEVERE");
                     if (isHeadless) {
                         chromeOptions.setHeadless(true);
                         chromeOptions.addArguments("--window-size=" + size.getWidth() + "," + size.getWidth());
