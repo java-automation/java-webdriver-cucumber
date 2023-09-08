@@ -11,4 +11,14 @@ Feature: Smoke steps
     Then I wait for element with xpath "//*[@id='res']" to be present
     Then element with xpath "//*[@id='res']" should contain text "Cucumber"
 
-  
+  @search1
+  Scenario: Search engine Gibiru.com
+    Given I open url "http://gibiru.com/"
+    Then I should see page title contains "Gibiru"
+    Then element with xpath "//input[@id='q']" should be present
+    And I type "Quality" into element with xpath "//input[@id='q']"
+    And I wait for 5 sec
+    And I click on element with xpath "//button[@type='submit']"
+    Then I wait for element with xpath "//div[@id='web-results']" to be present
+    Then element with xpath "//div[@id='web-results']" should contain text "quality"
+
