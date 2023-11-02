@@ -14,7 +14,7 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.Iterator;
 import static org.assertj.core.api.Assertions.*;
-import static support.TestContext.getDriver;
+import static support.DriverFactory.getDriver;
 
 public class PredefinedStepDefs {
     @Given("I open url {string}")
