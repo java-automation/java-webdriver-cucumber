@@ -15,7 +15,7 @@ public class Hooks {
 
     @After(order = 0)
     public void scenarioEnd(Scenario scenario) {
-        if (scenario.isFailed() && DriverFactory.isDriverUp()) {
+        if (DriverFactory.isDriverUp()) {// if (scenario.isFailed() && DriverFactory.isDriverUp()) {
             TakesScreenshot screenshotTaker = (TakesScreenshot) DriverFactory.getDriver();
             byte[] screenshot = screenshotTaker.getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "Screenshot");

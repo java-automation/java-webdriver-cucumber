@@ -1,0 +1,147 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2025-04-21T21:10:10.941Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1302000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "support.Hooks.scenarioStart()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Commerce registration smoke test",
+        "description": "",
+        "id": "nop-commerce-test-suite;commerce-registration-smoke-test",
+        "after": [
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.NoSuchWindowException: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=135.0.7049.96)\nBuild info: version: '4.17.0', revision: 'e52b1be057*'\nSystem info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.4', java.version: '23'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCommand: [8342c9919843eae7220ca8e62c8fa736, screenshot {}]\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.95 (de2eb485a195..., userDataDir: /var/folders/9w/xy51vm4j3yj...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51494}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:51494/devtoo..., se:cdpVersion: 135.0.7049.96, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}\nSession ID: 8342c9919843eae7220ca8e62c8fa736\n\tat java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:134)\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:592)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:596)\n\tat org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:322)\n\tat support.Hooks.scenarioEnd(Hooks.java:20)\n",
+              "duration": 6580000,
+              "status": "failed"
+            },
+            "match": {
+              "location": "support.Hooks.scenarioEnd(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1559531000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I navigate to \"nop commerce registration\" page",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"nop commerce registration\"",
+                  "offset": 14
+                }
+              ],
+              "location": "definitions.MarketStepDefs.iNavigateToPage(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 165399000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I fill out required user personal details on the registration form",
+            "match": {
+              "location": "definitions.CommerceStepDefs.iFillOutUserPersonalDetailsOnTheRegistrationForm()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 96246000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I submit the registration form",
+            "match": {
+              "location": "definitions.CommerceStepDefs.iSubmitTheRegistrationForm()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2005482000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I wait for 2 sec",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 11
+                }
+              ],
+              "location": "definitions.PredefinedStepDefs.iWaitForSec(int)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.cssSelector: .result\nFor documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception\nBuild info: version: '4.17.0', revision: 'e52b1be057*'\nSystem info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.4', java.version: '23'\nDriver info: driver.version: RemoteWebDriver\n\tat org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:168)\n\tat org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)\n\tat org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)\n\tat jdk.proxy2/jdk.proxy2.$Proxy20.getText(Unknown Source)\n\tat pages.CommerceRegistrationResult.getResultMessage(CommerceRegistrationResult.java:23)\n\tat definitions.CommerceStepDefs.iSeeThatUserRegistrationWasSuccessful(CommerceStepDefs.java:32)\n\tat ✽.I see that user registration was successful(file:///Users/vskryabin/IdeaProjects/java-webdriver-cucumber/src/test/resources/features/commerce.feature:10)\n",
+              "duration": 28493000,
+              "status": "failed"
+            },
+            "line": 10,
+            "name": "I see that user registration was successful",
+            "match": {
+              "location": "definitions.CommerceStepDefs.iSeeThatUserRegistrationWasSuccessful()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 155000,
+              "status": "skipped"
+            },
+            "line": 11,
+            "name": "I verify that required user fields saved correctly on account page",
+            "match": {},
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@commerce"
+          },
+          {
+            "name": "@commerce1"
+          }
+        ]
+      }
+    ],
+    "name": "NOP Commerce Test Suite",
+    "description": "",
+    "id": "nop-commerce-test-suite",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/commerce.feature",
+    "tags": [
+      {
+        "name": "@commerce",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]

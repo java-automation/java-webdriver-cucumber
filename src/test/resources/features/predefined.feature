@@ -1,4 +1,4 @@
-@predefined
+@predefined @regression
 Feature: Smoke steps
 
   @predefined1

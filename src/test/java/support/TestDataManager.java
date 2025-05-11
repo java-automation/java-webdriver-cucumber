@@ -50,6 +50,30 @@ public class TestDataManager {
         return configThreadLocal.get();
     }
 
+    public static Map<String, String> getCommerceUserData() {
+        String path = System.getProperty("user.dir") + "/src/test/resources/data/commerce_user.yml";
+        try (InputStream stream = new FileInputStream(path)) {
+            Yaml yaml = new Yaml();
+            Map<String, String> userData = yaml.load(stream);
+
+            // Add timestamp to email
+            String timestamp = getTimestamp();
+            String email = userData.get("email"); // john@example.com
+            String[] emailParts = email.split("@"); // {john, example.com}
+            String emailPart1 = emailParts[0]; // john
+            String emailPart2 = emailParts[1]; // example.com
+            String emailWithTimeStamp = emailPart1 + "+" + timestamp + "@" + emailPart2; // john+23523523@example.com
+            userData.put("email", emailWithTimeStamp); // replace email field with the new email
+
+            return userData;
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException("File not found: " + path, e);
+        } catch (IOException e) {
+            throw new Error("Error reading the file", e);
+        }
+    }
+
+
     public static Map<String, Object> getMapFromYamlFile(String fileName) {
         String path = System.getProperty("user.dir") + "/src/test/resources/data/" + fileName + ".yml";
         try (InputStream stream = new FileInputStream(path)) {

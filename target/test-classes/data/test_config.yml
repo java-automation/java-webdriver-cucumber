@@ -1,0 +1,12 @@
+testExecutionMode: local
+browser: chrome
+headless: false
+windowWidth: 1920
+windowHeight: 1080
+pageLoadTimeout: 60
+implicitTimeout: 5
+explicitTimeout: 10
+supportedOS:
+  - mac
+  - linux
+  - win
