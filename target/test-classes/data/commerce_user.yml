@@ -1,9 +1,0 @@
-firstName: John
-lastName: Doe
-email: test_email@gmail.com
-password: Password123
-gender: male
-dateOfBirthDay: "1"
-dateOfBirthMonth: January
-dateOfBirthYear: "1950"
-newsletter: true
